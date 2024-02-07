@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "windows": {
+      "options": {
+        "shell": {
+            "executable": "cmd.exe",
+            "args": ["/d", "/c"]
+        }
+    }
+    },
+    "tasks": [
+      {
+        "type": "cppbuild",
+        "label": "C/C++: cl.exe build active file",
+        "command": "\"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\Common7\\Tools\\VsDevCmd.bat\" && cl.exe",
+        "args": [
+          "/Zi",
+          "/EHsc",
+          "/nologo",
+          "/Fe${fileDirname}\\build\\${fileBasenameNoExtension}.exe",
+          "${fileDirname}\\**.cpp",
+          //"${fileDirname}\\**.h",
+          // "/Fd${fileDirname}\\build\\", // Specifies the debug information file
+          // "/Fo${fileDirname}\\build\\", // Specifies the output directory for object files
+        ],
+        "options": {
+          "cwd": "${fileDirname}"
+        },
+        "problemMatcher": [
+          "$msCompile"
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "detail": "compiler: cl.exe"
+      }
+    ]
+  }
